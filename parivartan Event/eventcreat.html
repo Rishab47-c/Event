@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="eventcreat.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="create-event-container">
+        <h2>Create Event</h2>
+        <form action="process_create_event.php" method="post">
+            <div class="form-groupd">
+                <label for="eventName">Event Name:</label>
+                <input type="text" name="eventName" id="eventName" required placeholder="Enter event name">
+            </div>
+            <div class="form-group">
+               <div class="align">
+                <label for="eventImage">Event Image Link:</label>
+                <input type="text" name ="eventImage" id="eventImage" required placeholder="Enter image link">
+                </div>
+                <div class="align1">
+                <label for="lastRegistrationDate">Last Date of Registration:</label>
+                <input type="date" name="lastRegistrationDate" id="lastRegistrationDate" required>
+                </div>
+            </div>
+            <div class="form-groupd">
+                <label for="eventDescription">Event Description:</label>
+                <textarea name="eventDescription" id="eventDescription" required placeholder="Enter event description"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="align">
+                <label for="eventDate">Date of Event:</label>
+                <input type="date" name="eventDate" id="eventDate" required>
+                </div>
+                <div class="align1">
+                <label for="eventDuration">Duration of Event:</label>
+                <input type="text" name="eventDuration" id="eventDuration" required placeholder="Enter event duration">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="align">
+                <label for="eventStartTime">Event Start Time:</label>
+                <input type="time" name="eventStartTime" id="eventStartTime" required>
+                </div>
+                <div class="align1">
+                <label for="participationType">Participation Type:</label>
+                <select name="participationType" id="participationType" required>
+                    <option value="individual">Individual</option>
+                    <option value="team">Team</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-groupd">
+                <label for="eventVenue">Venue:</label>
+                <input type="text" name="eventVenue" id="eventVenue" required placeholder="Enter event venue">
+            </div>
+            <div class="form-groupd">
+                <label for="eventVenue">Brochure Link:</label>
+                <input type="text" name="eventBrochure" id="eventBrochure" required placeholder="Enter brochure link">
+            </div>
+
+           
+            <h3>Judges:</h3>
+            <table class="judges-table">
+                <thead>
+                    <tr>
+                        <th>Serial No.</th>
+                        <th>Judge Name</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+            <button id="addJudge">Add Judge</button>
+           
+
+            <div class="form-group">
+                <button type="submit">Create Event</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function addJudgeRow() {
+            
+            var tableBody = document.querySelector(".judges-table tbody");
+    
+            var newRow = document.createElement("tr");
+    
+         
+            var serialNo = tableBody.children.length + 1;
+            var nameCell = document.createElement("td");
+            var departmentCell = document.createElement("td");
+            var emailCell = document.createElement("td");
+            var actionCell = document.createElement("td");
+
+            var nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.name = "judgeName";
+            nameCell.appendChild(nameInput);
+    
+            var departmentInput = document.createElement("input");
+            departmentInput.type = "text";
+            departmentInput.name = "judgeDepartment";
+            departmentCell.appendChild(departmentInput);
+    
+            var emailInput = document.createElement("input");
+            emailInput.type = "email";
+            emailInput.name = "judgeEmail";
+            emailCell.appendChild(emailInput);
+    
+            var addButton = document.createElement("button");
+            addButton.textContent = "Add";
+            addButton.addEventListener("click", function () {
+               
+                addButton.style.display = "none";
+    
+                
+                removeButton.style.display = "inline";
+    
+                
+                addJudgeRow();
+            });
+            actionCell.appendChild(addButton);
+    
+            var removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.style.display = "none"; 
+            removeButton.addEventListener("click", function () {
+                
+                tableBody.removeChild(newRow);
+            });
+            actionCell.appendChild(removeButton);
+    
+           
+            newRow.innerHTML = `
+                <td>${serialNo}</td>
+            `;
+            newRow.appendChild(nameCell);
+            newRow.appendChild(departmentCell);
+            newRow.appendChild(emailCell);
+            newRow.appendChild(actionCell);
+    
+            
+            tableBody.appendChild(newRow);
+        }
+    
+
+        document.getElementById("addJudge").addEventListener("click", function () {
+            addJudgeRow();
+        });
+    </script>
+    
+    
+</body>
+</html>

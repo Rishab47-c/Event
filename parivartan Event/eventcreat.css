@@ -1,0 +1,174 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F7FF;
+}
+
+.create-event-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #005082;
+    border-radius: 8px;
+   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-left: 38%;
+    font-size: 24px;
+    color: #005082;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    margin: 10px 0;
+}
+.form-groupd {
+    margin: 10px 0;
+}
+
+label {
+   
+    margin-bottom: 5px;
+    color: #005082;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #005082;
+    border-radius: 4px;
+}
+
+select {
+    background: #F0F7FF;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background: #005082;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 40%;
+}
+tr button {
+    background: #005082;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 2%;
+}
+
+button:hover {
+    background: #003e66;
+}
+
+
+.form-group:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group:nth-child(2) label {
+    width: 52%;
+}
+
+.form-group:nth-child(2) input[type="date"] {
+    width: 48%;
+}
+
+.form-group:nth-child(3) {
+    
+    justify-content: space-between;
+}
+
+.form-group:nth-child(3) label {
+    width: 48%;
+}
+
+.form-group:nth-child(3) input[type="text"],
+.form-group:nth-child(3) select {
+    width: 48%;
+}
+.align{
+    width: 47%;
+    
+}
+.align1{
+    width: 47%;
+    margin-left: 7%;
+}
+/* Add this to your existing CSS or create a new CSS file for judges */
+
+/* Style for the judges section */
+.judges-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Style for the judges table */
+.judges-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.judges-table th, .judges-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.judges-table th {
+    background-color: #f2f2f2;
+}
+
+/* Style for the "Add Judge" button */
+#addJudge {
+    background-color: #005082;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 4%;
+    margin-left:42% ;
+}
+
+#addJudge:hover {
+    background-color: #003e66;
+}
+h3{
+    color: #005082;
+}
+.judges-table th{
+    color: #005082;
+}

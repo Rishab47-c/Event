@@ -1,0 +1,65 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 1500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #005082;
+}
+
+#team-search {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #0074A2;
+    background: transparent;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #0074A2;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #0074A2;
+    background: transparent;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+tr:hover {
+    background-color: #ddd;
+}

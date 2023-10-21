@@ -1,0 +1,65 @@
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <link rel="stylesheet" href="mark.css">
+     <title>Team Marks Grading </title>
+ </head>
+ <body>
+     <div class="container">
+         <h1>Team Marks Grading </h1>
+         <input type="text" id="team-search" list="teams" placeholder="Search for a team">
+         <datalist id="teams">
+             <option value="Team A">
+             <option value="Team B">
+             <option value="Team C">
+             <option value="Team D">
+             <!-- Add more  teams -->
+         </datalist>
+         <table>
+             <tr>
+                 <th>S/no.</th>
+                 <th>Team ID</th>
+                 <th>Team</th>
+                 <th>Total Marks (Max: 30)</th>
+                 <th>Tick Mark</th>
+             </tr>
+             <tr>
+                 <td>1</td>
+                 <td>TM123</td>
+                 <td>Team A</td>
+                 <td><input type="number" min="1" max="30" step="0.1"></td>
+                 <td><input type="checkbox"></td>
+             </tr>
+             <tr>
+                 <td>2</td>
+                 <td>TM124</td>
+                 <td>Team B</td>
+                 <td><input type="number" min="1" max="30" step="0.1"></td>
+                 <td><input type="checkbox"></td>
+             </tr>
+             <tr>
+                 <td>3</td>
+                 <td>TM125</td>
+                 <td>Team C</td>
+                 <td><input type="number" min="1" max="30" step="0.1"></td>
+                 <td><input type="checkbox"></td>
+             </tr>
+             <tr>
+                 <td>4</td>
+                 <td>TM126</td>
+                 <td>Team D</td>
+                 <td><input type="number" min="1" max="30" step="0.1"></td>
+                 <td><input type="checkbox"></td>
+             </tr>
+             
+     
+             <!-- Add more teams -->
+         </table>
+     </div>
+ </body>
+ </html>
+ 

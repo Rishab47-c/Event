@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Register Now</h2>
+        <form action="process_login.php" method="post">
+            <div id="step1">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required placeholder="Your email">
+                </div>
+                <button id="next1" disabled>Next</button>
+            </div>
+            <div id="step2" style="display: none;">
+                <div class="form-group">
+                    <label for="role">Are you a student or a teacher?</label>
+                    <select name="role" id="role" required>
+                        <option value="">Select</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+                <button id="next2" disabled>Next</button>
+            </div>
+            <div id="studentFields" style="display: none;">
+                <div class="form-group">
+                    <label for="rollNo">Roll No:</label>
+                    <input type="text" name="rollNo" id="rollNo" required placeholder="Your roll_no">
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select name="year" id="year" required>
+                        <option value="">Select year</option>
+                        <option value="first">First</option>
+                        <option value="second">Second</option>
+                        <!-- Add more year options -->
+                    </select>
+                </div>
+                <button id="next3"  disabled>Next</button>
+            </div>
+            <div id="clubFields" style="display: none;">
+                <div class="form-group">
+                    <label for="club">Are you a member of any club?</label>
+                    <input type="radio" name="club" value="yes" required>Yes
+                    <input type="radio" name="club" value="no" required>No
+                </div>
+                <div class="form-group">
+                    <label for="clubname">Club Name:</label>
+                    <input type="text" name="clubname" id="clubname" required placeholder="Your club name">
+                </div>
+                <div class="form-group">
+                    <label for="clubPosition">Club Position:</label>
+                    <input type="text" name="clubPosition" id="clubPosition" required placeholder="Your role in the club">
+                </div>
+                <button id="next4" disabled>Next</button>
+            </div>
+            <div id="step5" style="display: none;">
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <input type="text" name="department" id="department" required placeholder="Your department">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Whatsapp no.:</label>
+                    <input type="text" name="whatsapp" id="whatsapp" required placeholder="Whatsapp no...">
+                </div>
+                <button id="next5" disabled>Next</button>
+            </div>
+            <div id="step6" style="display: none;">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required placeholder="Set password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Re-enter password">
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function setNextButtonState(stepId, nextButtonId) {
+            const requiredInputs = document.querySelectorAll(`#${stepId} [required]`);
+            const nextButton = document.getElementById(nextButtonId);
+            nextButton.disabled = !Array.from(requiredInputs).every(input => input.value.trim() !== '');
+        }
+
+        function configureNextButton(stepId, nextButtonId, nextStepId) {
+            setNextButtonState(stepId, nextButtonId);
+
+            const requiredInputs = document.querySelectorAll(`#${stepId} [required]`);
+            requiredInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    setNextButtonState(stepId, nextButtonId);
+                });
+            });
+
+            document.getElementById(nextButtonId).addEventListener('click', () => {
+                document.getElementById(stepId).style.display = 'none';
+                document.getElementById(nextStepId).style.display = 'block';
+            });
+        }
+
+        configureNextButton('step1', 'next1', 'step2');
+        configureNextButton('step2', 'next2', 'studentFields');
+        configureNextButton('studentFields', 'next3', 'clubFields');
+        configureNextButton('clubFields', 'next4', 'step5');
+        configureNextButton('step5', 'next5', 'step6');
+    </script>
+</body>
+</html>
